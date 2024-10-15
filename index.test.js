@@ -28,5 +28,11 @@ describe('./musicians endpoint', () => {
         expect(Array.isArray(responseData)).toBe(true);
     })
 
+    test("testing find by pk works", async () => {
+        const response = await request(app).get("/musicians/1");
+        expect(response.statusCode).toBe(200);
+        expect(response.body).toHaveProperty("id", 1)
+    })
+
     
 })
